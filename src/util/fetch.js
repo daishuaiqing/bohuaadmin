@@ -4,7 +4,7 @@ import axios from 'axios';
 // 创建axios实例
 const httpService = axios.create({
     // url前缀-'https://some-domain.com/api/'
-    baseURL: process.env.BASE_API, // 需自定义
+    baseURL: 'http://localhost:8888',//process.env.BASE_API, // 需自定义
     // 请求超时时间
     timeout: 3000 // 需自定义
 });
@@ -30,10 +30,10 @@ httpService.interceptors.response.use(
     response => {
         // 统一处理状态
         const res = response.data;
-        if (res.statuscode != 1) { // 需自定义
+        if (res.code != 200) { // 需自定义
             // 返回异常
             return Promise.reject({
-                status: res.statuscode,
+                status: res.code,
                 message: res.message
             });
         } else {
