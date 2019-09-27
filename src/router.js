@@ -8,24 +8,31 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
+    },
+    {
       path: '/',
-      name: 'index',
-      component: () => import('./views/index.vue')
-    },
-    {
-      path: '/edition',
-      name: 'edition',
-      component: () => import('./views/EditionList.vue')
-    },
-    {
-      path: '/edition/add',
-      name: 'Addedition',
-      component: () => import('./views/Edition.vue')
-    },
-    {
-      path: '/leasinger',
-      name: 'leasinger',
-      component: () => import('./views/LeasingerList.vue')
+      name: 'manage',
+      component: () => import('./views/Index.vue'),
+      children: [
+        {
+          path: '/',
+          name: 'edition',
+          component: () => import('./views/EditionList.vue')
+        },
+        {
+          path: '/edition/add',
+          name: 'Addedition',
+          component: () => import('./views/Edition.vue')
+        },
+        {
+          path: '/leasinger',
+          name: 'leasinger',
+          component: () => import('./views/LeasingerList.vue')
+        }
+      ]
     }
   ]
 })
