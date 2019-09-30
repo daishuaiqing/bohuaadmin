@@ -33,8 +33,7 @@ body {
 }
 .layout-nav {
   width: 420px;
-  margin: 0 auto;
-  margin-right: 20px;
+  /* margin-left: 10px; */
 }
 .layout-footer-center {
   text-align: center;

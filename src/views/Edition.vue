@@ -80,7 +80,7 @@
           :before-upload="handleBeforeUpload"
           multiple
           type="drag"
-          action="//localhost:8888/upload/image"
+          action="//test.dival.cn/upload/image"
           style="display: inline-block;width:58px;"
         >
           <div style="width: 58px;height:58px;line-height: 58px;">
